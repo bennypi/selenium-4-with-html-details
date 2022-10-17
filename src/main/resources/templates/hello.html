@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Application</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<h4 id="greeting" th:text="${greeting}"></h4>
+<details style="margin-bottom: 800px" open>
+    <summary>Your message</summary>
+    <p id="returnedMessage" th:text="${returnedMessage} ?: 'No message'"></p>
+</details>
+<form th:action="@{/hello}" method="post" th:object="${message}">
+    <details open>
+        <summary>Enter your message</summary>
+        <label for="inputfield">Enter your message</label>
+        <input type="text" id="inputfield" th:field="*{message}"/>
+    </details>
+    <button id="submit" type="submit">submit</button>
+</form>
+</body>
+</html>
